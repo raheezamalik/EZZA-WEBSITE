@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EEZA MODEST | Modest Fashion</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", serif;
+            background: #faf8f4;
+            color: #29251f;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background: #fffdf9;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #29251f;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #9a8061;
+        }
+
+        .icons {
+            display: flex;
+            gap: 18px;
+            font-size: 20px;
+        }
+
+        .icons span {
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background:
+                linear-gradient(
+                    rgba(55,43,31,0.25),
+                    rgba(55,43,31,0.25)
+                ),
+                url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #29251f;
+            color: white;
+            padding: 15px 32px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #9a8061;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* CATEGORIES */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .category:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            background: linear-gradient(transparent, rgba(0,0,0,.7));
+            font-size: 23px;
+        }
+
+        /* PRODUCTS */
+
+        .filters {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            border: none;
+            background: transparent;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: #9a8061;
+            border-bottom: 1px solid #9a8061;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            position: relative;
+            height: 390px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product:hover img {
+            transform: scale(1.04);
+        }
+
+        .heart {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background: white;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #9a8061;
+            font-weight: bold;
+        }
+
+        /* PROMO */
+
+        .promo {
+            background: #ded4c6;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .promo h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .promo p {
+            margin-bottom: 25px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            text-align: center;
+            background: #29251f;
+            color: white;
+        }
+
+        .newsletter h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            margin-bottom: 25px;
+        }
+
+        .newsletter input {
+            padding: 15px;
+            width: 300px;
+            border: none;
+            outline: none;
+        }
+
+        .newsletter button {
+            padding: 15px 25px;
+            border: none;
+            background: #b29a7c;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #171512;
+            color: white;
+            padding: 50px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+        }
+
+        footer p,
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #999;
+        }
+
+        /* CART */
+
+        .cart {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            padding: 30px;
+            box-shadow: -5px 0 20px rgba(0,0,0,.15);
+            transition: .4s;
+        }
+
+        .cart.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .close-cart {
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        #cartItems {
+            min-height: 100px;
+        }
+
+        .cart-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-total {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            section {
+                padding: 55px 5%;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .newsletter button {
+                width: 100%;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+    <div class="logo">EEZA MODEST</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="icons">
+        <span onclick="openCart()">🛍️</span>
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Modesty, Redefined.</h1>
+
+        <p>
+            Discover elegant abayas, graceful skirts,
+            beautiful hijabs and timeless modest wear
+            designed for the modern Muslim woman.
+        </p>
+
+        <a href="#shop" class="btn">SHOP COLLECTION</a>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section id="collections">
+
+    <div class="section-title">
+        <h2>Shop By Category</h2>
+        <p>Find your perfect modest style.</p>
+    </div>
+
+    <div class="categories">
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80">
+            <div class="category-title">Abayas</div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1583496661160-fb5886a13d77?auto=format&fit=crop&w=700&q=80">
+            <div class="category-title">Hijabs</div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=700&q=80">
+            <div class="category-title">Modest Skirts</div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=700&q=80">
+            <div class="category-title">Dresses</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="shop">
+
+    <div class="section-title">
+
+        <h2>Featured Collection</h2>
+
+        <p>Elegant pieces made for everyday beauty.</p>
+
+    </div>
+
+    <div class="filters">
+
+        <button class="filter-btn active" onclick="filterProducts('all')">
+            All
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('abaya')">
+            Abayas
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('hijab')">
+            Hijabs
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('skirt')">
+            Skirts
+        </button>
+
+    </div>
+
+
+    <div class="products">
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product" data-category="abaya">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80">
+
+                <div class="heart" onclick="wishlist(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Noor Flow Abaya</h3>
+
+                <p class="price">Rs. 8,999</p>
+
+                <button class="btn" onclick="addToCart('Noor Flow Abaya',8999)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product" data-category="hijab">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a13d77?auto=format&fit=crop&w=700&q=80">
+
+                <div class="heart" onclick="wishlist(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Silk Luxe Hijab</h3>
+
+                <p class="price">Rs. 1,999</p>
+
+                <button class="btn" onclick="addToCart('Silk Luxe Hijab',1999)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product" data-category="skirt">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=700&q=80">
+
+                <div class="heart" onclick="wishlist(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Grace Maxi Skirt</h3>
+
+                <p class="price">Rs. 4,499</p>
+
+                <button class="btn" onclick="addToCart('Grace Maxi Skirt',4499)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product" data-category="abaya">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=700&q=80">
+
+                <div class="heart" onclick="wishlist(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Layla Embroidered Abaya</h3>
+
+                <p class="price">Rs. 10,999</p>
+
+                <button class="btn" onclick="addToCart('Layla Embroidered Abaya',10999)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMO -->
+
+<section class="promo">
+
+    <h2>Elegance in Every Layer</h2>
+
+    <p>
+        Get 15% off your first order with EEZA MODEST.
+    </p>
+
+    <a href="#shop" class="btn">SHOP NOW</a>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80">
+
+        <div class="about-text">
+
+            <h2>Made With Modesty</h2>
+
+            <p>
+                EEZA MODEST was created for women who believe
+                modesty and modern fashion can exist beautifully
+                together.
+            </p>
+
+            <p>
+                From flowing abayas and graceful skirts to
+                luxurious hijabs, every piece is designed with
+                comfort, elegance and timeless style in mind.
+            </p>
+
+            <a href="#shop" class="btn">EXPLORE COLLECTION</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter" id="contact">
+
+    <h2>Join The EEZA Family</h2>
+
+    <p>
+        Subscribe for new collections, exclusive offers
+        and modest fashion inspiration.
+    </p>
+
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <button onclick="subscribe()">SUBSCRIBE</button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>EEZA MODEST</h3>
+            <p>Elegant modest fashion for modern Muslim women.</p>
+        </div>
+
+        <div>
+            <h3>Shop</h3>
+            <a href="#shop">Abayas</a>
+            <a href="#shop">Hijabs</a>
+            <a href="#shop">Skirts</a>
+            <a href="#shop">Dresses</a>
+        </div>
+
+        <div>
+            <h3>Help</h3>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Size Guide</a>
+            <a href="#">FAQs</a>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>Instagram</p>
+            <p>Facebook</p>
+            <p>TikTok</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 EEZA MODEST. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <span class="close-cart" onclick="closeCart()">✕</span>
+
+    </div>
+
+    <div id="cartItems">
+        Your cart is empty.
+    </div>
+
+    <div class="cart-total">
+        Total: Rs. <span id="cartTotal">0</span>
+    </div>
+
+</div>
+
+
+<script>
+
+    let cart = [];
+
+    /* ADD TO CART */
+
+    function addToCart(name, price) {
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        updateCart();
+
+        openCart();
+
+    }
+
+
+    /* UPDATE CART */
+
+    function updateCart() {
+
+        const cartItems = document.getElementById("cartItems");
+
+        const totalElement = document.getElementById("cartTotal");
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = "Your cart is empty.";
+
+            totalElement.innerText = "0";
+
+            return;
+        }
+
+        cartItems.innerHTML = "";
+
+        let total = 0;
+
+        cart.forEach((item, index) => {
+
+            total += item.price;
+
+            const div = document.createElement("div");
+
+            div.className = "cart-item";
+
+            div.innerHTML = `
+                <strong>${item.name}</strong>
+                <br>
+                Rs. ${item.price.toLocaleString()}
+                <br>
+                <button onclick="removeItem(${index})">
+                    Remove
+                </button>
+            `;
+
+            cartItems.appendChild(div);
+
+        });
+
+        totalElement.innerText = total.toLocaleString();
+
+    }
+
+
+    /* REMOVE ITEM */
+
+    function removeItem(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+
+    }
+
+
+    /* OPEN CART */
+
+    function openCart() {
+
+        document.getElementById("cart")
+            .classList.add("open");
+
+    }
+
+
+    /* CLOSE CART */
+
+    function closeCart() {
+
+        document.getElementById("cart")
+            .classList.remove("open");
+
+    }
+
+
+    /* WISHLIST */
+
+    function wishlist(element) {
+
+        if (element.innerText === "♡") {
+
+            element.innerText = "♥";
+
+        } else {
+
+            element.innerText = "♡";
+
+        }
+
+    }
+
+
+    /* PRODUCT FILTER */
+
+    function filterProducts(category) {
+
+        const products =
+            document.querySelectorAll(".product");
+
+        products.forEach(product => {
+
+            if (
+                category === "all" ||
+                product.dataset.category === category
+            ) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    /* NEWSLETTER */
+
+    function subscribe() {
+
+        const email =
+            document.getElementById("email").value;
+
+        if (email === "") {
+
+            alert("Please enter your email.");
+
+        } else {
+
+            alert(
+                "Thank you for joining the EEZA MODEST family!"
+            );
+
+            document.getElementById("email").value = "";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
